@@ -1,0 +1,15 @@
+<h4 mat-dialog-title>Change Location</h4>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Change Location To</mat-label>
+      <mat-select (selectionChange)="onLocationChanged($event)">
+        <mat-option *ngFor="let loc of locations" [value]="loc.value">
+          {{loc.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="selectedValue" cdkFocusInitial>Ok</button>
+  </div>

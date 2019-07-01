@@ -1,0 +1,97 @@
+<div class="row p-0 m-0">
+  <div class="col-md-3 col-12 p-0 m-0" *ngIf="showUserInfo">
+    <div class="user-info">
+      <mat-toolbar>
+        <div>
+          <fa-icon [icon]="faIdBadge">
+          </fa-icon>
+        </div>
+        <span class="word-space"> User Information</span>
+      </mat-toolbar>
+      <div class="user-info-body">
+
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <mat-form-field>
+          <input matInput [formControl]="userid" type="text" placeholder="your nickname">
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <mat-form-field>
+          <input matInput [formControl]="memberid" type="text" placeholder="MemberID">
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <mat-form-field>
+          <input matInput [formControl]="mobile" type="text" placeholder="Mobile">
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <mat-form-field>
+          <input matInput [formControl]="location" type="text" placeholder="Location">
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <div>
+          <button type="button" class="btn btn-block btn-warning" mat-raised-button [disabled]="isConnected"
+            (click)="onConnect()">
+            Connect
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <button type="button" class="btn btn-block btn-danger" mat-raised-button [disabled]="!isConnected"
+            (click)="onDisconnect()">
+            Disconnect
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9 col-12 p-0 m-0 message-panel" *ngIf="!hidePanelMessage">
+
+    <div class="" fxLayout="column" fxLayoutAlign="end stretch">
+      <div >
+        <mat-toolbar>
+          <div>
+            <fa-icon [icon]="faComments" class="online-user">
+            </fa-icon>
+          </div>
+          <span class="word-space"> Messages</span>
+          <span class="example-spacer"></span>
+          <div>
+            <fa-icon [icon]="faTimesCircle" (click)="onDisconnect()">
+            </fa-icon>
+          </div>
+        </mat-toolbar>
+      </div>
+      <div class="one1" >       
+        <virtual-scroller #scroll [items]="messages" class="viewport">
+            <ng-container *ngFor="let msg of scroll.viewPortItems ">
+                  <app-message-box 
+                      who="{{msg.mine}}" 
+                      userid="{{msg.user}}" 
+                      message="{{msg.message}}">
+                  </app-message-box>
+           
+            </ng-container >                 
+        </virtual-scroller>
+      </div>
+      <div class="footer" >
+        <div fxLayout="row" fxFill fxLayoutAlign="center end">
+          <div fxLayout fxFlex>
+            <div class="msg-text" [fxFlex]="isSmallScreen?0:90">
+              <input [formControl]="textmsg" #accessId (keydown)="onTextKeydown($event)"
+                class="form-control border border-success" type="text" placeholder="type message here">
+            </div>
+            <div class="btn-Send" fxFlex="10" *ngIf="!isSmallScreen">
+              <button class="btn btn-info btn-block" [disabled]="!isConnected" (click)="onSendMsg()">
+                <i>
+                  <fa-icon [icon]="faPlay">
+                  </fa-icon>
+                </i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.myclass {
+  font-size: 3rem;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+
+.theme-light2 {
+  border: 1px solid;
+  background-color: darkcyan;
+}
+
+.chat-room {
+  margin: 20px;
+}
+
+@media (min-width: 576px) {
+   margin: 4px;
+}

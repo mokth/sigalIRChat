@@ -1,0 +1,17 @@
+  <h4 mat-dialog-title>Messgae History</h4>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Get Last n Days messages</mat-label>
+      <mat-select (selectionChange)="onLastDayChanged($event)">
+          <mat-option [value]="3">1 Days</mat-option>
+        <mat-option [value]="3">3 Days</mat-option>
+        <mat-option [value]="5">7 Days</mat-option>
+        <mat-option [value]="10">10 Days</mat-option>
+        <mat-option [value]="30">1 month</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="selectedValue" cdkFocusInitial>Ok</button>
+  </div>

@@ -1,0 +1,40 @@
+<div >
+    <div class="viewport" fxLayout="column" fxLayoutAlign="end stretch" >
+      <div fxFlex="10" >
+          <mat-toolbar>
+              <div >
+               <fa-icon [icon]="faUserCircle" class="online-user">                  
+               </fa-icon>                             
+            </div>        
+            <div><span> Online Users </span> </div>  
+          </mat-toolbar>
+      </div>
+      <div class="msg-body" fxFlex="90">
+        <cdk-virtual-scroll-viewport itemSize="30" minBufferPx="40" class="scroll-viewport">
+          <div *cdkVirtualFor="let item of users" class="example-item">
+            <div fxLayout="row" fxLayoutAlign="space-between center"  class="online-user{{item.online?'':'offline'}}" (click)="onUserClick(item)">
+            
+                 <div fxFlex="50">
+                  <i>
+                    <fa-icon class="{{item.online?'online':'offline'}}"
+                          [icon]="faUserCircle"></fa-icon>
+                    {{item.userid}} 
+                    <span *ngIf="item.unreadmsg>0" class="badge badge-danger">{{item.unreadmsg}}</span>                   
+                  </i>
+                 </div>
+                 <div fxFlex="30">
+                   <div class="row connected-time">
+                          <small  >{{item.connectedOn| date:'hh:mm:ss a' }}</small>
+                   </div>
+                   <div class="row connected-time">
+                        <small  >{{item.location }}</small>
+                   </div>
+                  
+                 </div>
+              </div>            
+            
+            <mat-divider></mat-divider>
+          </div>
+        </cdk-virtual-scroll-viewport>
+      </div>  
+</div>

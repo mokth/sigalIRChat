@@ -1,0 +1,117 @@
+body {
+  font-family: helvetica;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat {
+  width: 100%;
+  /* border: solid 1px #EEE; */
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+}
+
+.messages {
+  margin-top: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 10px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: inline-block;
+  background-color:#D4EFDF;
+}
+
+.yours {
+  align-items: flex-start;
+}
+
+.yours .message {
+  color:black;
+  margin-right: 25%;
+  background-color: #F5EEF8;
+  position: relative;
+}
+/* 
+.yours .message.last:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: -7px;
+  height: 20px;
+  width: 20px;
+  border-bottom-right-radius: 15px;
+}
+
+.yours .message.last:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: -10px;
+  width: 10px;
+  height: 20px;
+
+  border-bottom-right-radius: 10px;
+} */
+
+.mine {
+  align-items: flex-end;
+}
+
+.mine .message {
+  color: darkblue;
+  margin-left: 25%;
+  /* background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%); */
+  background-attachment: fixed;
+  position: relative;
+}
+
+.date {
+  align-items: flex-center;
+}
+
+.date .message {
+  color:red;
+  border-radius: 0px;
+  text-align: center;
+  /* margin-left: 45%; */
+  background: none;
+  border-bottom: 1px solid grey;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* .mine .message.last:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  right: -8px;
+  height: 20px;
+  width: 20px;
+   background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%); 
+  background-attachment: fixed;
+  border-bottom-left-radius: 15px;
+}
+
+.mine .message.last:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: -10px;
+  width: 10px;
+  height: 20px;
+  background: white;
+  border-bottom-left-radius: 10px;
+} */

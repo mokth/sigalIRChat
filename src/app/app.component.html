@@ -1,0 +1,23 @@
+
+<div >
+    <!-- <div class="row">
+        <div class="col">
+                <mat-checkbox 
+                    checked="false" 
+                    [formControl]="admin"
+                    (change)="onChange()"
+                    >Admin user</mat-checkbox>
+        </div>
+    </div>
+    <div class="chat-room" *ngIf="!isAdmin ">
+        user
+        <app-user-chat></app-user-chat>
+    </div>
+    <div class="chat-room" *ngIf="isAdmin ">
+        admin
+        <app-admin-chat></app-admin-chat>
+    </div> -->
+    <div class="chat-room">
+        <router-outlet></router-outlet>
+    </div>
+</div>
