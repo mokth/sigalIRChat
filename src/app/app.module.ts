@@ -14,6 +14,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 import { NgPipesModule } from 'ngx-pipes';
 
+ 
 //Angular Material
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -39,6 +40,12 @@ import { AdminMainComponent } from './admin-main/admin-main.component';
 import { SettingComponent } from './dialog/setting/setting.component';
 import { FilterComponent } from './dialog/filter/filter.component';
 import { LocationComponent } from './dialog/location/location.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './services/auth.service';
+import { AuthguardService } from './services/AuthguardService';
+import { CanDeactivateGuard } from './services/CanDeactivateGuard';
+import { ChangeAdminComponent } from './dialog/change-admin/change-admin.component';
+import { ImageUploadComponent } from './dialog/testup-image/image-upload.component';
 
 
 
@@ -53,6 +60,9 @@ import { LocationComponent } from './dialog/location/location.component';
     SettingComponent,
     FilterComponent,
     LocationComponent,
+    LoginComponent,
+    ChangeAdminComponent,
+    ImageUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -75,16 +85,21 @@ import { LocationComponent } from './dialog/location/location.component';
     FontAwesomeModule,
     FlexLayoutModule,
     VirtualScrollerModule,
-    NgPipesModule,
+    NgPipesModule, 
     DeviceDetectorModule.forRoot()
   ],
   entryComponents:[
     SettingComponent,
     FilterComponent,
-    LocationComponent
+    LocationComponent,
+    ChangeAdminComponent,
+    ImageUploadComponent
   ],
   providers: [
     MessageAPI,
+    AuthService,
+    AuthguardService,
+    CanDeactivateGuard,  
     { provide: 'API_URL', useValue: `${environment.apiUrl}` },
     { provide: 'MSG_API', useValue: `${environment.msgApi}` },
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},

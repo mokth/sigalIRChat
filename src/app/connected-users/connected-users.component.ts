@@ -13,6 +13,7 @@ export class ConnectedUsersComponent implements OnInit {
   
   @Output() selectedUser = new EventEmitter();
   @Input() users:ConnectedUser[]=[];
+  @Input() isOnline:boolean;
   constructor() { }
 
   ngOnInit() {
@@ -20,8 +21,12 @@ export class ConnectedUsersComponent implements OnInit {
   }
   
   onUserClick(user:ConnectedUser){
-    console.log(user);
+    //console.log(user);
     user.unreadmsg=0;
     this.selectedUser.emit(user);
+  }
+
+  onConnect(){
+    this.selectedUser.emit(1);
   }
 }

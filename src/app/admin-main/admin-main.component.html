@@ -1,18 +1,22 @@
 <div fxLayout="row" fxFill>
   <div fxLayout fxFlex>
     <div class="user-list" fxFlex="30%">
-      <app-connected-users (selectedUser)="OnUserSelected($event)" [users]="userlist"></app-connected-users>
+      <app-connected-users 
+        [isOnline]="isConnected"
+        (selectedUser)="OnUserSelected($event)" 
+        [users]="userlist"></app-connected-users>
     </div>
     <div  fxFlex="70%" >
         <div class="message-panel" fxLayout="column" fxLayoutAlign="end stretch" >
           <div class="one1" fxFlex="10" >
             <mat-toolbar>
-                <div *ngIf="username">
+              <div *ngIf="username">
                  <fa-icon [icon]="faUserCircle" class="online-user">                  
                  </fa-icon>                 
               </div>
               <div><span> {{username}}</span> </div>
               <span class="example-spacer"></span>
+              <div><span>[ {{adminName}} ]</span> </div>
               <div (click)="openDialog()">
                 <fa-icon [icon]="faCog" class="online-user">                  
                 </fa-icon>
@@ -25,6 +29,13 @@
               </div>
               <div >
                 <fa-icon (click)="openFilterDialog()" [icon]="faFilter" class="online-user">                  
+                </fa-icon>
+                <span></span> 
+              </div>
+              <div >
+                <fa-icon (click)="logout()" 
+                         [icon]="faSignOutAlt" 
+                         class="online-user">                  
                 </fa-icon>
                 <span></span> 
               </div>
@@ -41,6 +52,9 @@
                         <app-message-box 
                             who="{{msg.mine}}" 
                             userid="{{msg.user}}" 
+                            msgtime="{{msg.msgon}}" 
+                            adminid= {{msg.adminid}}
+                            imageUrl="{{msg.imageUrl}}"
                             message="{{msg.message}}">
                         </app-message-box>
                  

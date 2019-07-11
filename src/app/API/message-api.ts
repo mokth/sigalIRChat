@@ -5,28 +5,27 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class MessageAPI {
 
-  constructor(private http:HttpClient,
-            
-             @Inject('MSG_API') private apiUrl:string) 
-   { }
-  
-   getTodayMessages():Observable<any>{
-      return this.http.get<any>(this.apiUrl+'api/chat/messages');
-   }
+  constructor(private http: HttpClient,
 
-   getUserLastNDaysMessages(days:number,memberid:string):Observable<any>{
-     return this.http.get<any>(this.apiUrl+'api/chat/messages/'+days+'/'+memberid);
-   }
+    @Inject('MSG_API') private apiUrl: string) { }
 
-  getMemberLastNDaysMessages(days:number,memberid:string):Observable<any>{
-    return this.http.get<any>(this.apiUrl+'api/chat/mymessages/'+days+'/'+memberid);
+  getTodayMessages(): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'api/chat/messages');
   }
 
-   getUnreadMessagesCount():Observable<any>{
-      return this.http.get<any>(this.apiUrl+'api/chat/unread');
-    }
+  getUserLastNDaysMessages(days: number, memberid: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'api/chat/messages/' + days + '/' + memberid);
+  }
 
-    setMessagesAttended(memberid:string):Observable<any>{
-      return this.http.get<any>(this.apiUrl+'api/chat/attended/'+memberid);
-    }
+  getMemberLastNDaysMessages(days: number, memberid: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'api/chat/mymessages/' + days + '/' + memberid);
+  }
+
+  getUnreadMessagesCount(days: number): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'api/chat/unread/'+ days);
+  }
+
+  setMessagesAttended(memberid: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl + 'api/chat/attended/' + memberid);
+  }
 }

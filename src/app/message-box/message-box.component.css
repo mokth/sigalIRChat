@@ -91,6 +91,33 @@ body {
   position: relative;
 }
 
+.mgs-time{
+  display: block;
+  float: right;
+  font-style: italic;
+  font-size: 11px;
+}
+
+.msg-lines{
+  white-space: pre-wrap;
+}
+.mine .message.last:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: -10px;
+  width: 10px;
+  height: 20px;
+  background: white;
+  border-bottom-left-radius: 10px;
+}
+
+.illustration img {
+  width: 50%;
+  margin:auto;
+  display: block;
+}
 /* .mine .message.last:before {
   content: "";
   position: absolute;

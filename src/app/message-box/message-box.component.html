@@ -5,7 +5,16 @@
             <!-- <span *ngIf="userid" class="badge badge-light">
                 <small>{{userid}}</small>
             </span> -->
-            <span>{{message}}</span>
+            <span *ngIf="!imageUrl" class="msg-lines">{{message}}</span>
+            <span *ngIf="imageUrl" class="msg-lines">
+                <div class="illustration">
+                    <img [src]="imageUrl" style='max-width: 200px;'>
+                </div>
+            </span>
+            <div>
+                <small class="mgs-time">{{adminid}} {{msgtime|date:'hh:mm a'}}</small>
+            </div>
          </div>
+        
       </div>
 </div>

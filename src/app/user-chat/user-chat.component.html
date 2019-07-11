@@ -67,7 +67,10 @@
             <ng-container *ngFor="let msg of scroll.viewPortItems ">
                   <app-message-box 
                       who="{{msg.mine}}" 
-                      userid="{{msg.user}}" 
+                      userid="{{msg.user}}"
+                      msgtime="{{msg.msgon}}" 
+                      imageUrl="{{msg.imageUrl}}"
+                      adminid="{{msg.adminid}}"
                       message="{{msg.message}}">
                   </app-message-box>
            
@@ -77,18 +80,27 @@
       <div class="footer" >
         <div fxLayout="row" fxFill fxLayoutAlign="center end">
           <div fxLayout fxFlex>
-            <div class="msg-text" [fxFlex]="isSmallScreen?0:90">
+            <div class="msg-text" [fxFlex]="isSmallScreen?0:80">
               <input [formControl]="textmsg" #accessId (keydown)="onTextKeydown($event)"
                 class="form-control border border-success" type="text" placeholder="type message here">
             </div>
             <div class="btn-Send" fxFlex="10" *ngIf="!isSmallScreen">
-              <button class="btn btn-info btn-block" [disabled]="!isConnected" (click)="onSendMsg()">
+              <button class="btn btn-info btn-block" [disabled]="!isConnected"
+                      (click)="openImageDialog()">
                 <i>
-                  <fa-icon [icon]="faPlay">
+                  <fa-icon [icon]="faImage">
                   </fa-icon>
                 </i>
               </button>
             </div>
+            <div class="btn-Send" fxFlex="10" *ngIf="!isSmallScreen">
+                <button class="btn btn-info btn-block" [disabled]="!isConnected" (click)="onSendMsg()">
+                  <i>
+                    <fa-icon [icon]="faPlay">
+                    </fa-icon>
+                  </i>
+                </button>
+              </div>
           </div>
         </div>
       </div>

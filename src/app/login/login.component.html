@@ -1,0 +1,64 @@
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-t-50 p-t-50 p-b-90">
+        <form [formGroup]="rform" class="login100-form validate-form flex-sb flex-w"
+             (ngSubmit)="onSignin(rform)">
+         <span class="login100-form-title p-b-51">
+               Please Login
+         </span>
+  
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
+            <input class="input100" 
+                   id="inputEmail"
+                   type="text" 
+                   name="name" 
+                   formControlName="name"
+                   placeholder='Admin Id'
+                   required autofocus>
+            <span class="focus-input100"></span>
+          </div>
+  
+          <div class="wrap-input100 validate-input" data-validate = "Please enter password">
+            <input class="input100" 
+                  id="inputPassword"      
+                 type="password" 
+                 name="password" 
+                 formControlName="password"
+                 placeholder='Password' required>
+            <span class="focus-input100"></span>
+          </div>
+  
+          <div class="container-login100-form-btn m-t-17">
+            <button [disabled]="isEnable"
+                    type="submit" 
+                    class="login100-form-btn">
+                   Sign In
+            </button>
+          </div>
+          <!-- <div class="flex-sb-m w-full p-t-3 p-b-24">
+                <div class="row">
+                    <div class="contact100-form-checkbox col">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" 
+                           formControlName="remember">
+                        <label class="label-checkbox100" for="ckb1">
+                                {{"login.remember" }}
+                        </label>
+                    </div>
+    
+                    <div class="col">
+                        <div class="row justify-content-end">
+                            <a routerLink="/auth/forgot" class="txt1">
+                                {{"login.forgot"}}?
+                            </a>
+                        </div>
+                    </div>
+                </div>
+           </div> -->
+        </form>
+        <small class="btn-danger">{{message}}</small>
+        <div class="lds-roller" *ngIf="isWaiting"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        
+      </div>
+    </div>
+  </div>  
+  

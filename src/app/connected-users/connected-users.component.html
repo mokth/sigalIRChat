@@ -7,6 +7,12 @@
                </fa-icon>                             
             </div>        
             <div><span> Online Users </span> </div>  
+            <div><span>
+               <div *ngIf="!isOnline" 
+                    (click)="onConnect()"
+                    class="btn btn-info">Connect</div> 
+                </span>
+              </div>  
           </mat-toolbar>
       </div>
       <div class="msg-body" fxFlex="90">
@@ -21,6 +27,9 @@
                     {{item.userid}} 
                     <span *ngIf="item.unreadmsg>0" class="badge badge-danger">{{item.unreadmsg}}</span>                   
                   </i>
+                  <div *ngIf="item.attendedBy">
+                    <small>Attended by {{item.attendedBy }}</small>
+                  </div>
                  </div>
                  <div fxFlex="30">
                    <div class="row connected-time">

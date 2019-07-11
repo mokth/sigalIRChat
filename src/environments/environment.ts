@@ -6,7 +6,7 @@ export const environment = {
   production: false,
    apiUrl:'http://localhost:64946/chathub',
    msgApi:'http://localhost:64946/',
-  // apiUrl:'http://gala365.com.my/onlinechat/chatHub',
+   //apiUrl:'http://gala365.com.my/onlinechat/chatHub',
   // msgApi:'http://gala365.com.my/onlinechat/',
   
 };

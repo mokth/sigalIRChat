@@ -9,8 +9,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MessageBoxComponent implements OnInit {
   
   @Input() message:string;
+  @Input() msgtime:Date;
   @Input() who:string;
   @Input() userid:string;
+  @Input() adminid:string;
+  @Input() imageUrl:string;
   constructor() { }
 
   ngOnInit() {

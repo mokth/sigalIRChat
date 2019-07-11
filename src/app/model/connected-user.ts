@@ -7,5 +7,6 @@ export class ConnectedUser{
     public connectedOn:Date;
     public unreadmsg:number;  
     public online:boolean; 
+    public attendedBy:string;  
 
 }
