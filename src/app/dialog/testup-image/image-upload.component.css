@@ -1,5 +1,9 @@
 .illustration img {
-    width: 100%;
+    /* width: 100%;
     margin:auto;
-    display: block;
+    display: block; */
   }
+.upload-img{
+  max-width: 70vw;
+  max-height: 90vh;
+}

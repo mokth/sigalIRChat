@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { ViewImageComponent } from '../dialog/view-image/view-image.component';
 
 
 @Component({
@@ -14,10 +16,19 @@ export class MessageBoxComponent implements OnInit {
   @Input() userid:string;
   @Input() adminid:string;
   @Input() imageUrl:string;
-  constructor() { }
+  constructor( public dialog: MatDialog,) { }
 
   ngOnInit() {
     
   }
+  
+  onViewImage(imageUrl){
+   
+    const dialogRef = this.dialog.open(ViewImageComponent, {
+      data: { name: imageUrl },
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
 }

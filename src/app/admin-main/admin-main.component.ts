@@ -4,7 +4,7 @@ import * as signalR from '@aspnet/signalr';
 import * as groupArray from 'group-array'
 import { debounceTime } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
-import { faUserCircle, faCog, faPlay, faStreetView, faFilter, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faCog, faPlay, faStreetView,faImage, faFilter, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { VirtualScrollerComponent } from 'ngx-virtual-scroller';
@@ -21,6 +21,7 @@ import { LocationComponent } from '../dialog/location/location.component';
 import { UserInfo } from '../model/model';
 import { AuthService } from '../services/auth.service';
 import { ChangeAdminComponent } from '../dialog/change-admin/change-admin.component';
+import { ImageUploadComponent } from '../dialog/testup-image/image-upload.component';
 
 @Component({
   selector: 'app-admin-main',
@@ -49,6 +50,7 @@ export class AdminMainComponent implements OnInit {
   faUserCircle = faUserCircle;
   faCog = faCog;
   faPlay = faPlay;
+  faImage = faImage;
   faFilter = faFilter;
   faSignOutAlt = faSignOutAlt;
   textmsg = new FormControl();
@@ -467,5 +469,31 @@ export class AdminMainComponent implements OnInit {
     this.onDisconnect();
     this.auth.logOut();
     this.router.navigate(['/login']);
+  }
+
+  
+  openImageDialog(): void {
+    const dialogRef = this.dialog.open(ImageUploadComponent, {
+      data: { name: this.galaAdminID },
+      height:"400"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('upload image ' + result);
+      if (result) {
+        let msg = new ChatMessage();
+        msg.user = this.send2UserId;//this.userid.value;
+        msg.type = "image";
+        msg.mine = "mine";
+        msg.msgon = new Date();
+        msg.adminid = this.galaAdminID;
+        msg.message = "";
+        msg.imageUrl = this.msgUrl+"images/" + result;
+        this.messages = [...this.messages, msg];
+        this.hubConnection
+        .invoke("SendMessageToUser", this.selectduser.id, this.galaAdminID, result,'image')
+       
+      }
+    });
   }
 }

@@ -26,7 +26,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS, MatDialogRef } from '@angular/material/dialog';
-
+import {MatCardModule} from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,6 +46,7 @@ import { AuthguardService } from './services/AuthguardService';
 import { CanDeactivateGuard } from './services/CanDeactivateGuard';
 import { ChangeAdminComponent } from './dialog/change-admin/change-admin.component';
 import { ImageUploadComponent } from './dialog/testup-image/image-upload.component';
+import { ViewImageComponent } from './dialog/view-image/view-image.component';
 
 
 
@@ -62,7 +63,8 @@ import { ImageUploadComponent } from './dialog/testup-image/image-upload.compone
     LocationComponent,
     LoginComponent,
     ChangeAdminComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    ViewImageComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +84,7 @@ import { ImageUploadComponent } from './dialog/testup-image/image-upload.compone
     ScrollDispatchModule,
     MatInputModule,
     MatDialogModule,
+    MatCardModule,
     FontAwesomeModule,
     FlexLayoutModule,
     VirtualScrollerModule,
@@ -93,7 +96,8 @@ import { ImageUploadComponent } from './dialog/testup-image/image-upload.compone
     FilterComponent,
     LocationComponent,
     ChangeAdminComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    ViewImageComponent
   ],
   providers: [
     MessageAPI,

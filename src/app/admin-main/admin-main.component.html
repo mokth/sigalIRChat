@@ -73,6 +73,15 @@
                                  type="text"
                           placeholder="type message here">
                       </div>
+                      <div class="btn-Send" fxFlex="10" *ngIf="!isSmallScreen">
+                        <button class="btn btn-info btn-block" [disabled]="!isConnected"
+                                (click)="openImageDialog()">
+                          <i>
+                            <fa-icon [icon]="faImage">
+                            </fa-icon>
+                          </i>
+                        </button>
+                      </div>
                       <div class="btn-Send" fxFlex="10">
                           <button 
                               class="btn btn-info btn-block" 

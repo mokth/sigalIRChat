@@ -101,6 +101,12 @@ body {
 .msg-lines{
   white-space: pre-wrap;
 }
+
+.msg-image{
+  white-space: pre-wrap;
+  background-color: white !important;
+}
+
 .mine .message.last:after {
   content: "";
   position: absolute;

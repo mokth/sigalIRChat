@@ -6,9 +6,11 @@
                 <small>{{userid}}</small>
             </span> -->
             <span *ngIf="!imageUrl" class="msg-lines">{{message}}</span>
-            <span *ngIf="imageUrl" class="msg-lines">
+            <span *ngIf="imageUrl" class="msg-image">
                 <div class="illustration">
-                    <img [src]="imageUrl" style='max-width: 200px;'>
+                    <img [src]="imageUrl"
+                     (click)="onViewImage(imageUrl)"
+                    style='max-width: 200px;'>
                 </div>
             </span>
             <div>

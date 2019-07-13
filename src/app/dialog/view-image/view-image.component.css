@@ -1,0 +1,11 @@
+.example-card {
+    max-width: 70vw;
+    max-height: 90vh;
+ }
+
+.illustration image {
+    width: 100%;
+    margin:auto;
+    display: block;
+    overflow: scroll; 
+  }

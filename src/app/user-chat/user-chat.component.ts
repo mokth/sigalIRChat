@@ -252,6 +252,7 @@ export class UserChatComponent implements OnInit {
   openImageDialog(): void {
     const dialogRef = this.dialog.open(ImageUploadComponent, {
       data: { name: this.userid.value },
+      height:"400"
     });
 
     dialogRef.afterClosed().subscribe(result => {
