@@ -2,4 +2,5 @@
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 body {
     overscroll-behavior-y: contain;
+    font-family: 'Roboto', sans-serif;
 }

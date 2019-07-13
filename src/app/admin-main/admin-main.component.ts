@@ -4,7 +4,8 @@ import * as signalR from '@aspnet/signalr';
 import * as groupArray from 'group-array'
 import { debounceTime } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
-import { faUserCircle, faCog, faPlay, faStreetView,faImage, faFilter, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faCog, faPlay, faComments,
+         faStreetView,faImage, faFilter, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { VirtualScrollerComponent } from 'ngx-virtual-scroller';
@@ -52,6 +53,7 @@ export class AdminMainComponent implements OnInit {
   faPlay = faPlay;
   faImage = faImage;
   faFilter = faFilter;
+  faComment=faComments;
   faSignOutAlt = faSignOutAlt;
   textmsg = new FormControl();
   changeOwner: boolean;
