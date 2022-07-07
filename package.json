@@ -34,7 +34,7 @@
     "group-array": "^0.3.3",
     "hammerjs": "^2.0.8",
     "jquery": "^3.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ngx-device-detector": "^1.3.6",
     "ngx-moment": "^3.4.0",
     "ngx-pipes": "^2.5.1",
